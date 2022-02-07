@@ -28,10 +28,16 @@ export class AppComponent implements OnInit{
     }
     console.log(this.frontendEngineers);
   }
+
   addNewEngineer(frontend:FrontendEngineer)
   {
-    this.frontendEngineers.push(frontend);
+    //concat returns new copy of array it doesn't mutate existing arrays
+    this.frontendEngineers=this.frontendEngineers.concat([frontend]);
   }
-
+  addNewBackendEngineer(backend:BackendEngineer)
+  {
+    //concat returns new copy of array it doesn't mutate existing arrays
+    this.backendEngineers = this.backendEngineers.concat([backend]);
+  }
 
 }

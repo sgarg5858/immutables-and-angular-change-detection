@@ -1,11 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { FrontendEngineer } from '../models/frontend-engineer.interface';
 
 @Component({
   selector: 'app-frontend-engineers',
   templateUrl: './frontend-engineers.component.html',
-  styleUrls: ['./frontend-engineers.component.scss']
+  styleUrls: ['./frontend-engineers.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class FrontendEngineersComponent implements OnInit {
 

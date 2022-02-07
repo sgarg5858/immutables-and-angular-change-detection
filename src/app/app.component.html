@@ -1,5 +1,5 @@
 <div style="display: flex;justify-content: space-around;">
   <app-frontend-engineers (newEngineerComing)="addNewEngineer($event)" [frontendEngineers]="frontendEngineers"></app-frontend-engineers>
 
-  <app-backend-engineers [backendEngineers]="backendEngineers"></app-backend-engineers>
+  <app-backend-engineers  (newEngineerComing)="addNewBackendEngineer($event)" [backendEngineers]="backendEngineers"></app-backend-engineers>
 </div>
