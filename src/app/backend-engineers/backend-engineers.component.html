@@ -1,0 +1,6 @@
+<h1>Backend Engineers</h1>
+<ul>
+    <li  *ngFor="let backendEngineer of backendEngineers">
+        {{backendEngineer.name}} - {{calculateSalary(backendEngineer.skillLevel)}}
+    </li>
+</ul>
