@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { List } from 'immutable';
-import { FrontendEngineer } from '../models/frontend-engineer.interface';
+import { Engineer } from '../models/engineer.interface';
 
 @Component({
   selector: 'app-frontend-engineers',
@@ -12,26 +12,16 @@ import { FrontendEngineer } from '../models/frontend-engineer.interface';
 export class FrontendEngineersComponent implements OnInit {
 
   constructor() { }
-  @Output() newEngineerComing= new EventEmitter<FrontendEngineer>();
-
-  addEngineer= new FormControl('',[Validators.required]);
-
-  @Input() frontendEngineers:List<FrontendEngineer>=List([]);
-
-
+  @Output() newEngineerComing= new EventEmitter<Engineer>();
+  @Input() frontendEngineers:List<Engineer>=List([]);
   ngOnInit(): void {
   }
 
-  calculateSalary(skillLevel:number):number
-  {
-    console.log(skillLevel,"Frontend");
-    return skillLevel * 5000;
-  }
-
-  newEngineer()
+ 
+  newEngineer(name:string)
   {
     this.newEngineerComing.emit({
-      name:this.addEngineer.value,
+      name,
       skillLevel:20,
       domain:'Frontend',
       salary:0,
