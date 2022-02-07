@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { List } from 'immutable';
 import { FrontendEngineer } from '../models/frontend-engineer.interface';
 
 @Component({
@@ -15,7 +16,7 @@ export class FrontendEngineersComponent implements OnInit {
 
   addEngineer= new FormControl('',[Validators.required]);
 
-  @Input() frontendEngineers:FrontendEngineer[]=[];
+  @Input() frontendEngineers:List<FrontendEngineer>=List([]);
 
 
   ngOnInit(): void {

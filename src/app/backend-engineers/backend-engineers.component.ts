@@ -1,6 +1,7 @@
 import { Component, OnInit,Input,Output,EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import {BackendEngineer} from '../models/backend-engineer.interface';
 import {FormControl,Validators} from '@angular/forms'
+import { List } from 'immutable';
 @Component({
   selector: 'app-backend-engineers',
   templateUrl: './backend-engineers.component.html',
@@ -16,7 +17,7 @@ export class BackendEngineersComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @Input() backendEngineers:BackendEngineer[]=[];
+  @Input() backendEngineers:List<BackendEngineer>=List([]);
   @Output() newEngineerComing= new EventEmitter<BackendEngineer>();
 
 
