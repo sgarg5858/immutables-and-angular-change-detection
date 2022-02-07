@@ -1,5 +1,5 @@
 <ul>
     <li  *ngFor="let engineer of engineers">
-        {{engineer.name}} - {{calculateSalary(engineer.skillLevel)}}
+        {{engineer.name}} - {{engineer.skillLevel | salary }}
     </li>
 </ul>

@@ -8,6 +8,7 @@ import { BackendEngineersComponent } from './backend-engineers/backend-engineers
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddEngineerComponent } from './add-engineer/add-engineer.component';
 import { ShowEnginnersComponent } from './show-enginners/show-enginners.component';
+import { SalaryPipe } from './salary.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ShowEnginnersComponent } from './show-enginners/show-enginners.componen
     BackendEngineersComponent,
     AddEngineerComponent,
     ShowEnginnersComponent,
+    SalaryPipe,
   ],
   imports: [
     BrowserModule,
