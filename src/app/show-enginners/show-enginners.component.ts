@@ -17,10 +17,10 @@ export class ShowEnginnersComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  calculateSalary(skillLevel:number):number
-  {
-    console.log(skillLevel,"Backend");
-    return skillLevel * 5000;
-  }
+  // calculateSalary(skillLevel:number):number
+  // {
+  //   console.log(skillLevel,"Backend");
+  //   return skillLevel * 5000;
+  // }
 
 }
