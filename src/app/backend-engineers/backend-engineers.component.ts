@@ -1,5 +1,5 @@
 import { Component, OnInit,Input,Output,EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import {BackendEngineer} from '../models/backend-engineer.interface';
+import {Engineer} from '../models/engineer.interface';
 import {FormControl,Validators} from '@angular/forms'
 import { List } from 'immutable';
 @Component({
@@ -12,27 +12,19 @@ export class BackendEngineersComponent implements OnInit {
 
   constructor() { }
 
-  addEngineer= new FormControl('',[Validators.required]);
 
   ngOnInit(): void {
   }
 
-  @Input() backendEngineers:List<BackendEngineer>=List([]);
-  @Output() newEngineerComing= new EventEmitter<BackendEngineer>();
+  @Input() backendEngineers:List<Engineer>=List([]);
+  @Output() newEngineerComing= new EventEmitter<Engineer>();
 
+  
 
- 
-
-  calculateSalary(skillLevel:number):number
-  {
-    console.log(skillLevel,"Backend");
-    return skillLevel * 5000;
-  }
-
-  newEngineer()
+  newEngineer(name:string)
   {
     this.newEngineerComing.emit({
-      name:this.addEngineer.value,
+      name,
       skillLevel:20,
       domain:'Backend',
       salary:0,

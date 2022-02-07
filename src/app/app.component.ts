@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BackendEngineer } from './models/backend-engineer.interface';
-import { FrontendEngineer } from './models/frontend-engineer.interface';
+import { Engineer } from './models/engineer.interface';
 import {List} from 'immutable'
 import * as Immutable from 'immutable';
 
@@ -13,8 +12,8 @@ import * as Immutable from 'immutable';
 export class AppComponent implements OnInit{
   title = 'immutables-in-angular';
 
-  frontendEngineers:List<FrontendEngineer>=List([]);
-  backendEngineers:List<BackendEngineer>=List([]);
+  frontendEngineers:List<Engineer>=List([]);
+  backendEngineers:List<Engineer>=List([]);
 
   ngOnInit(): void {
     console.log("App Init")
@@ -23,8 +22,8 @@ export class AppComponent implements OnInit{
 
   addEngineers()
   {
-    const frontend:FrontendEngineer[]=[];
-    const backend:BackendEngineer[]=[];
+    const frontend:Engineer[]=[];
+    const backend:Engineer[]=[];
     for(let i=0;i<1000;i++)
     {
       frontend.push({name:`Frontend Enginner ${i}`,id:i+1,skillLevel:(i%10)*10+10,salary:0,domain:'Frontend'});
@@ -35,12 +34,12 @@ export class AppComponent implements OnInit{
     console.log(this.frontendEngineers);
   }
 
-  addNewEngineer(frontend:FrontendEngineer)
+  addNewEngineer(frontend:Engineer)
   {
     //concat returns new copy of array it doesn't mutate existing arrays
     this.frontendEngineers=this.frontendEngineers.push(frontend);
   }
-  addNewBackendEngineer(backend:BackendEngineer)
+  addNewBackendEngineer(backend:Engineer)
   {
     //concat returns new copy of array it doesn't mutate existing arrays
     this.backendEngineers=this.backendEngineers.push(backend);

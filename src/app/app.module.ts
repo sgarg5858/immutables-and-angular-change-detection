@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { FrontendEngineersComponent } from './frontend-engineers/frontend-engineers.component';
 import { BackendEngineersComponent } from './backend-engineers/backend-engineers.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddEngineerComponent } from './add-engineer/add-engineer.component';
+import { ShowEnginnersComponent } from './show-enginners/show-enginners.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FrontendEngineersComponent,
     BackendEngineersComponent,
+    AddEngineerComponent,
+    ShowEnginnersComponent,
   ],
   imports: [
     BrowserModule,
