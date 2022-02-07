@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BackendEngineer } from './models/backend-engineer.interface';
-import { FrontendEngineer } from './models/frontend-engineer.interface';
-
+import { Engineer } from './models/engineer.interface';
+import {List} from 'immutable'
+import * as Immutable from 'immutable';
 
 
 @Component({
@@ -11,8 +11,9 @@ import { FrontendEngineer } from './models/frontend-engineer.interface';
 })
 export class AppComponent implements OnInit{
   title = 'immutables-in-angular';
-  frontendEngineers:FrontendEngineer[]=[];
-  backendEngineers:BackendEngineer[]=[];
+
+  frontendEngineers:List<Engineer>=List([]);
+  backendEngineers:List<Engineer>=List([]);
 
   ngOnInit(): void {
     console.log("App Init")
@@ -21,23 +22,27 @@ export class AppComponent implements OnInit{
 
   addEngineers()
   {
-    for(let i=0;i<100;i++)
+    const frontend:Engineer[]=[];
+    const backend:Engineer[]=[];
+    for(let i=0;i<1000;i++)
     {
-      this.frontendEngineers.push({name:`Frontend Enginner ${i}`,id:i+1,skillLevel:(i%10)*10+10,salary:0,domain:'Frontend'});
-      this.backendEngineers.push({name:`Backend Enginner ${i}`,id:i+1,skillLevel:(i*10)*10+10,salary:0,domain:'Backend'})
+      frontend.push({name:`Frontend Enginner ${i}`,id:i+1,skillLevel:(i%10)*10+10,salary:0,domain:'Frontend'});
+      backend.push({name:`Backend Enginner ${i}`,id:i+1,skillLevel:(i*10)*10+10,salary:0,domain:'Backend'})
     }
+    this.frontendEngineers=List(frontend);
+    this.backendEngineers=List(backend);
     console.log(this.frontendEngineers);
   }
 
-  addNewEngineer(frontend:FrontendEngineer)
+  addNewEngineer(frontend:Engineer)
   {
     //concat returns new copy of array it doesn't mutate existing arrays
-    this.frontendEngineers=this.frontendEngineers.concat([frontend]);
+    this.frontendEngineers=this.frontendEngineers.push(frontend);
   }
-  addNewBackendEngineer(backend:BackendEngineer)
+  addNewBackendEngineer(backend:Engineer)
   {
     //concat returns new copy of array it doesn't mutate existing arrays
-    this.backendEngineers = this.backendEngineers.concat([backend]);
+    this.backendEngineers=this.backendEngineers.push(backend);
   }
 
 }

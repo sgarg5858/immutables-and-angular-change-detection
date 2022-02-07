@@ -1,12 +1,10 @@
 <h1>Backend Engineers</h1>
 
-<div>
-    <input type="text" [formControl]="addEngineer">
-    <button (click)="newEngineer()">Add Backend Engineer</button>
-    </div>
+<app-add-engineer 
+engineerType='Frontend' 
+(engineertoAdd)="newEngineer($event)"
+></app-add-engineer>
 
-<ul>
-    <li  *ngFor="let backendEngineer of backendEngineers">
-        {{backendEngineer.name}} - {{calculateSalary(backendEngineer.skillLevel)}}
-    </li>
-</ul>
+<app-show-engineers [engineers]="backendEngineers">
+
+</app-show-engineers>
